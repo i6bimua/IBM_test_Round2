@@ -1,3 +1,75 @@
+众所周知，黑神话和这个的唯一相似点就是大家都是闯关游戏（
+#### 系统
+系统主要负责接受玩家输入和管理菜单（但菜单做不出来）
+目前地图，障碍物，实体均有对应的继承：System_(类名)，其中只含有capture_函数来接受输入
+其继承间共有属性目前找不太到所以System类本身是空的（
+#### 地图
+地图属性有两项：长与宽
+提供的方法有：
+- map_size_receive：以数组形式接收传入的长与宽；
+- map_size_output：返回这一地图的长与宽
+- map_is_obstruct_settle判断某物体是否可以被放在某处
+
+**地图显示方面**：将一个二维vector定义为map_vector并以此进行显示
+提供的方法有：
+- map_generate_blank：创建一个指定长与宽的矩形地图
+- map_set_boundary：进行地图边界的设置。目前会直接将地图最外围整体设置为
+边境
+- map_print在终端打印当前的地图
+
+#### 障碍物
+障碍物会阻碍玩家前进。
+其目前成员属性仅坐标summon_point；
+提供的方法有：
+- obstrucal_summon_point_set 设置一个障碍物的坐标
+- obstrcal_summon_point_output 输出一个障碍物的坐标
+- obstrucal_summon_try 尝试在地图中该障碍物坐标处放置该障碍物
+
+#### 实体
+实体包含玩家与敌人
+其共有成员属性有hp，mp
+提供的方法有
+- entity_set_hp 设置hp
+- entity_set_mp 设置mp
+- entity_hp_output 获取hp
+- entity_mp_output 获取mp
+- entity_set_spawn_point 设置出生点
+- entity_summon_try 尝试在地图中该实体坐标处放置该实体
+
+#### 玩家
+玩家是实体的一个继承，其独有的方法有：
+- player_move 尝试移动（敌人理应也会移动，但寻路做不出来只好原地坐牢了）
+- player_recover 回复一定量的hp
+（战斗系统做不了一点，前面的区域以后再来探索吧）
+#### Debug
+Debug类提供了一系列函数，辅助检查（但在这里似乎没什么用）
+其命名规律：
+Debug_(类名)\_(类成员函数名)；
+Debug_(类名)\_check\_(成员变量名);
+Debug_(行为)
+提供的成员函数有：
+Debug_System_Map_capture_map_size
+Debug_printmap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***
+**下面是旧版，做不出来，因为我太菜了**
+***
+
+
 # これはタイトルですよ～
 This is the subtitle.
 -
