@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Wukong Game": {
+      "commandName": "Project",
+      "commandLineArgs": "\"E:\\Program_Dev\\OSC\\OOP Examination - Wukong\\map.txt\""
+    }
+  }
+}
