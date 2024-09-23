@@ -1,0 +1,31 @@
+# Project: 项目30
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ttest.o studentt.o
+LINKOBJ  = ttest.o studentt.o
+LIBS     = -L"D:/C++/Dev-Cpp/MinGW64/lib" -L"D:/C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/C++/Dev-Cpp/MinGW64/include" -I"D:/C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/C++/Dev-Cpp/MinGW64/include" -I"D:/C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = 项目30.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+ttest.o: ttest.cpp
+	$(CPP) -c ttest.cpp -o ttest.o $(CXXFLAGS)
+
+studentt.o: studentt.cpp
+	$(CPP) -c studentt.cpp -o studentt.o $(CXXFLAGS)
